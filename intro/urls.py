@@ -16,15 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from eshop.views import ProductListView, ProductDetailView
-from eshop.views import ProductCreateView, ProductUpdateView, ProductDeleteView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('list/', ProductListView.as_view(), name="list_view"),
-    path('detail/<int:pk>/', ProductDetailView.as_view()),
-    path('create/', ProductCreateView.as_view(), name="create_view"),
-    path('update/<int:pk>/', ProductUpdateView.as_view()),
-    path('delete/<int:pk>/', ProductDeleteView.as_view()),
+    path('', include('eshop.urls'))
 ]
